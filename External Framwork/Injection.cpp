@@ -233,7 +233,6 @@ namespace Inject
 		//If the machine type is not the current file type we fail
 		if (pOldFileHeader->Machine != IMAGE_FILE_MACHINE_AMD64)
 		{
-			printf("Invalid platform\n");
 			delete[] pSourceData;
 			return 5;
 		}
@@ -241,7 +240,6 @@ namespace Inject
 		//If the machine type is not the current file type we fail
 		if (pOldFileHeader->Machine != IMAGE_FILE_MACHINE_I386)
 		{
-			printf("Invalid platform\n");
 			delete[] pSourceData;
 			return 5;
 		}
@@ -257,7 +255,6 @@ namespace Inject
 			if (!pTargetBase)
 			{
 				//We couldn't allocate memory.  
-				printf("Memory allocation failed 0x%X\n", GetLastError());
 				//Cleanup
 				delete[] pSourceData;
 				//Fail
@@ -283,7 +280,6 @@ namespace Inject
 				if (!WriteProcessMemory(hProc, pTargetBase + pSectionHeader->VirtualAddress, pSourceData + pSectionHeader->PointerToRawData, pSectionHeader->SizeOfRawData, nullptr))
 				{
 					//We couldn't allocate memory 
-					printf("Failed to allocate memory: 0x%x\n", GetLastError());
 					delete[] pSourceData;
 					VirtualFreeEx(hProc, pTargetBase, 0, MEM_RELEASE);
 					return 7;
@@ -299,7 +295,6 @@ namespace Inject
 		void * pShellcode = VirtualAllocEx(hProc, nullptr, 0x1000, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
 		if (!pShellcode)
 		{
-			printf("Memory allocation failed (1) (ex) 0x%X\n", GetLastError());
 			VirtualFreeEx(hProc, pTargetBase, 0, MEM_RELEASE);
 			return 8;
 		}
@@ -309,7 +304,6 @@ namespace Inject
 		HANDLE hThread = CreateRemoteThread(hProc, nullptr, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>(pShellcode), pTargetBase, 0, nullptr);
 		if (!hThread)
 		{
-			printf("Thread creation failed 0x%X\n", GetLastError());
 			VirtualFreeEx(hProc, pTargetBase, 0, MEM_RELEASE);
 			VirtualFreeEx(hProc, pShellcode, 0, MEM_RELEASE);
 			return 9;
