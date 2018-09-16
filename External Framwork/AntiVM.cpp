@@ -100,8 +100,8 @@ namespace AntiVM
 	BOOLEAN CheckProcess()
 	{
 		TCHAR *szProcesses[] = {
-			TEXT("vboxservice.exe"),
-			TEXT("vboxtray.exe"),
+			TEXT("VBoxService.exe"),
+			TEXT("VBoxTray.exe"),
 			TEXT("VMSrvc.exe"),
 			TEXT("VMUSrvc.exe"),
 			TEXT("xenservice.exe")
