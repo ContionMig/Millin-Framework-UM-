@@ -1,0 +1,4 @@
+https://github.com/mrexodia/TitanHide ( https://github.com/mrexodia/TitanHide/blob/master/LICENSE )
+https://github.com/LordNoteworthy/al-khaser ( https://github.com/LordNoteworthy/al-khaser/blob/master/LICENSE )
+https://github.com/KN4CK3R/XorStr
+https://github.com/Sleevelesss/CS-GO-Simple-External

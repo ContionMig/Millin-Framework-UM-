@@ -1,0 +1,31 @@
+#pragma once
+
+#include <thread>
+#include <functional>
+#include <future>
+#include <array>
+#include <windows.h>
+#include <vector>
+#include <iostream>
+#include <iomanip>
+#include <sstream>
+#include <fstream>
+#include <tlhelp32.h>
+#include <wininet.h>
+#include <string>
+#include <math.h>
+#include <algorithm>
+#include <Subauth.h>
+#include <fstream>
+
+#include "Struct.h"
+#include "Injection.h"
+#include "Process.h"
+#include "Privileges.h"
+#include "AntiDebug.h"
+#include "AntiVM.h"
+#include "AntiDump.h"
+#include "SystemInfo.h"
+#include "Maths.h"
+#include "Memory.h"
+#include "XorStr.h"
