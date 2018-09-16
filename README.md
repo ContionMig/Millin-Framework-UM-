@@ -52,6 +52,11 @@ System Info:
 - Number Of Processors
 - Page Size
 
+Maths:
+- Vectors
+- Matrixes
+- Simple Square Root
+
 Xor ( [Credit](https://github.com/KN4CK3R/XorStr ))
 
 # TO-DO
