@@ -187,7 +187,6 @@ namespace Inject
 		//Check if the file exists
 		if (!GetFileAttributesA(szDllFile))
 		{
-			printf("File doesn't exist\n");
 			return 1;
 		}
 
@@ -197,7 +196,6 @@ namespace Inject
 		//Check if we can open the file
 		if (File.fail())
 		{
-			printf("Opening the file failed: %X\n", (DWORD)File.rdstate());
 			File.close();
 			return 2;
 		}
@@ -209,7 +207,6 @@ namespace Inject
 		//If we couldn't allocate memory for this data we failed
 		if (!pSourceData)
 		{
-			printf("Memory allocating failed\n");
 			File.close();
 			return 3;
 		}
@@ -222,7 +219,6 @@ namespace Inject
 		//Check if it's a valid PE file
 		if (reinterpret_cast<IMAGE_DOS_HEADER*>(pSourceData)->e_magic != 0x5A4D)
 		{
-			printf("Invalid file\n");
 			delete[] pSourceData;
 			return 4;
 		}
