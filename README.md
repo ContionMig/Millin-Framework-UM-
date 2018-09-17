@@ -10,6 +10,9 @@ Process Information:
 - Getting Process Threads
 
 Anti Debug ( [Credits](https://github.com/mrexodia/TitanHide) ):
+- CheckRemoteDebuggerPresent
+- IsDebuggerPresent
+- NtGlobalFlag
 - ProcessDebugFlags (NtQueryInformationProcess)
 - ProcessDebugPort (NtQueryInformationProcess)
 - ProcessDebugObjectHandle (NtQueryInformationProcess)
