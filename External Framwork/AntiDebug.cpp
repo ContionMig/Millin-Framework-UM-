@@ -2,6 +2,31 @@
 
 namespace AntiDebug
 {
+	inline BOOLEAN DebuggerPresent()
+	{
+		BOOL isDebuggerPresent = FALSE;
+		CheckRemoteDebuggerPresent(GetCurrentProcess(), &isDebuggerPresent);
+		if (isDebuggerPresent)
+		{
+			return isDebuggerPresent;
+		}
+
+		return IsDebuggerPresent();
+	}
+
+	inline BOOLEAN CheckNtGlobalFlag()
+	{
+		PVOID pPeb = (PVOID)__readgsqword(0x0C * sizeof(PVOID));
+		DWORD offsetNtGlobalFlag = 0;
+		offsetNtGlobalFlag = 0xBC;
+		DWORD NtGlobalFlag = *(PDWORD)((PBYTE)pPeb + offsetNtGlobalFlag);
+		if (NtGlobalFlag & (0x10 | 0x20 | 0x40))
+		{
+			return true;
+		}
+		return false;
+	}
+
 	inline BOOLEAN CheckNtClose()
 	{
 		__try
