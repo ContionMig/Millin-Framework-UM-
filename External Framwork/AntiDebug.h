@@ -1,9 +1,10 @@
 #pragma once
 #include "Headers.h"
 
-// https://github.com/mrexodia/TitanHide/blob/master/TitanHideTest/main.cpp
 namespace AntiDebug
 {
+	extern inline BOOLEAN DebuggerPresent();
+	extern inline BOOLEAN CheckNtGlobalFlag();
 	extern inline BOOLEAN CheckNtClose();
 	extern inline BOOLEAN CheckSystemDebugControl();
 	extern inline BOOLEAN CheckSystemDebugger();
